@@ -105,7 +105,7 @@ export default function AboutPage() {
       <section id="biography" aria-labelledby="bio" className="scroll-mt-4 bg-paper">
         <div className={`${wrap} grid items-center gap-10 py-12 lg:grid-cols-[1fr_1fr] lg:gap-20 lg:py-16`}>
           <div className="relative aspect-[4/4.4] w-full overflow-hidden bg-ink">
-            <Image src="/images/julio-bio.png" alt={`${p.name} in a dark suit`} fill sizes="(min-width:1024px) 45vw, 100vw" className="object-cover" />
+            <Image src="/images/julio-bio.webp" alt={`${p.name} in a dark suit`} fill sizes="(min-width:1024px) 45vw, 100vw" className="object-cover" />
           </div>
           <div>
             <p className={`${label} text-ink/60`}>Biography</p>
