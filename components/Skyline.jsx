@@ -10,7 +10,7 @@ export default function Skyline({ seed = 1, className = "" }) {
     x += w + 1;
   }
   return (
-    <svg viewBox="0 0 400 100" preserveAspectRatio="none" aria-hidden="true" className={className}>
+    <svg viewBox="0 0 400 100" preserveAspectRatio="none" aria-hidden="true" className={`anim-skyline ${className}`}>
       {buildings.map((b, i) => (
         <rect key={i} x={b.x} y={100 - b.h} width={b.w} height={b.h} fill={i % 3 ? "#1d1d1d" : "#2b2b2b"} />
       ))}

@@ -85,7 +85,7 @@ export default function AboutPage() {
           </div>
         </div>
         <div className="relative z-0 h-[360px] w-full sm:h-[440px] lg:absolute lg:bottom-0 lg:right-0 lg:h-[92%] lg:w-[52%]">
-          <Image src="/story-man.png" alt={`Portrait of ${p.name}`} fill priority sizes="(min-width:1024px) 52vw, 100vw" className="object-contain object-bottom lg:object-right-bottom" />
+          <Image src="/story-man.png" alt={`Portrait of ${p.name}`} fill priority sizes="(min-width:1024px) 52vw, 100vw" className="anim-float object-contain object-bottom lg:object-right-bottom" />
         </div>
       </section>
 

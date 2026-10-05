@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Skyline from "@/components/Skyline";
+import StickySidebar from "@/components/StickySidebar";
+import ReadingProgress from "@/components/ReadingProgress";
 import NewsCard from "@/components/NewsCard";
 import { ArrowIcon } from "@/components/icons";
 import { posts, getPost, getOthers, formatDate, readingMinutes } from "@/lib/posts";
@@ -101,6 +103,8 @@ export default function Article({ params }) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
+      <ReadingProgress />
+
       {/* Title band */}
       <section className="relative overflow-hidden bg-ink text-white">
         <Skyline seed={9} className="absolute inset-x-0 bottom-0 h-[80%] w-full opacity-40" />
@@ -126,7 +130,7 @@ export default function Article({ params }) {
       <div className="bg-[linear-gradient(to_bottom,#0B0B0B_50%,#EBE9E5_50%)]">
         <div className={box}>
           <figure className="relative aspect-[16/10] overflow-hidden bg-ink sm:aspect-[2.6/1]">
-            <Image src={a.image} alt={a.imageAlt || ""} fill priority sizes="(min-width:1200px) 1136px, 100vw" className="object-cover object-center grayscale" />
+            <Image src={a.image} alt={a.imageAlt || ""} fill priority sizes="(min-width:1200px) 1136px, 100vw" className="anim-kenburns object-cover object-center grayscale" />
           </figure>
         </div>
       </div>
@@ -171,7 +175,7 @@ export default function Article({ params }) {
 
           {/* Sidebar */}
           <aside className="lg:pl-12">
-            <div className="article-side space-y-6">
+            <StickySidebar className="space-y-6">
             <section aria-labelledby="kf">
               <h2 id="kf" className={sideTitle}>Key facts</h2>
               <span aria-hidden="true" className="mt-2 block h-px w-8 bg-ink" />
@@ -201,7 +205,7 @@ export default function Article({ params }) {
               </ol>
             </nav>
 
-            </div>
+            </StickySidebar>
           </aside>
         </div>
       </div>

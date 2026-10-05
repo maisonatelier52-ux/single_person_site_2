@@ -4,7 +4,7 @@ import { formatDate, readingMinutes } from "@/lib/posts";
 
 export default function NewsCard({ post, priority = false }) {
   return (
-    <li className="group flex flex-col bg-[#171717] text-white">
+    <li className="group flex flex-col bg-[#171717] text-white transition-[translate,box-shadow] duration-500 hover:-translate-y-1.5 hover:shadow-[0_22px_40px_-22px_rgba(0,0,0,.7)]">
       <Link href={`/news/${post.slug}`} tabIndex={-1} aria-hidden="true" className="relative block aspect-[4/3] overflow-hidden bg-[#0d0d0d]">
         <Image src={post.image} alt="" fill priority={priority} sizes="(min-width:1024px) 25vw, (min-width:640px) 50vw, 100vw" className="object-cover grayscale transition duration-500 group-hover:scale-[1.03]" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />

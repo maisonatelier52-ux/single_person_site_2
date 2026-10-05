@@ -2,6 +2,7 @@ import { Inter, Newsreader } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Motion from "@/components/Motion";
 import { site } from "@/data/site";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
@@ -91,8 +92,11 @@ const siteJsonLd = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${serif.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${inter.variable} ${serif.variable}`}>
       <body className="font-sans">
+        {/* Enables scroll animations. If the animation script never starts, the class is removed so content is never hidden. */}
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js');setTimeout(function(){if(!window.__motion)document.documentElement.classList.remove('js')},4000)" }} />
+        <Motion />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }} />
         <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:bg-white focus:px-4 focus:py-2 focus:text-ink">Skip to content</a>
         <Header />
