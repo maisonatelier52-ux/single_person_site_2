@@ -1,0 +1,91 @@
+{
+  "name": "Julio Herrera Velutini",
+  "fullName": "Julio Martín Herrera Velutini",
+  "jobTitle": "Banker and entrepreneur",
+  "tagline": "Banker and entrepreneur. Founder of Britannia Financial Group.",
+  "birthDate": "1971-12-15",
+  "birthPlace": "Caracas, Venezuela",
+  "lastUpdated": "2026-10-01",
+  "summary": "Julio Herrera Velutini is a Venezuelan-Italian banker and entrepreneur with more than three decades in finance. He founded Britannia Financial Group and represents the seventh generation of a family associated with banking, private capital and cultural patronage.",
+  "facts": [
+    {
+      "label": "Born",
+      "value": "15 December 1971, Caracas, Venezuela"
+    },
+    {
+      "label": "Occupation",
+      "value": "Banker and entrepreneur"
+    },
+    {
+      "label": "Founder of",
+      "value": "Britannia Financial Group"
+    },
+    {
+      "label": "Family office",
+      "value": "Banvelca"
+    },
+    {
+      "label": "Heritage",
+      "value": "Seventh generation of a banking family"
+    }
+  ],
+  "bio": [
+    "Julio Martín Herrera Velutini was born in Caracas, Venezuela, on 15 December 1971. He began working in banking and capital markets in the early 1990s, building professional experience across Latin America before extending his work into Europe and other international financial centres.",
+    "He founded Britannia Financial Group in London in 2016. The group developed through specialised businesses serving securities, commodities, derivatives, foreign exchange, fixed income and custody markets, with its headquarters established at The Scalpel in the City of London.",
+    "His family traces its financial tradition to the establishment of Banvelca & Company in Naples in 1781 and to later generations associated with Banco Caracas. Banvelca now serves as the Herrera Velutini family office, coordinating investment interests, strategic holdings and philanthropic initiatives.",
+    "Herrera Velutini's public profile joins finance with a wider interest in institutional continuity, cultural patronage and succession. That approach is reflected in the family's support for cultural programmes and in the transfer of active leadership responsibilities to a new generation."
+  ],
+  "timeline": [
+    {
+      "when": "1781",
+      "what": "The family's published financial history begins with Banvelca & Company in Naples.",
+      "slug": "julio-herrera-velutini-man-name-and-legacy"
+    },
+    {
+      "when": "1971",
+      "what": "Born in Caracas, Venezuela."
+    },
+    {
+      "when": "Early 1990s",
+      "what": "Begins his career in banking and finance."
+    },
+    {
+      "when": "2016",
+      "what": "Britannia Financial Group is incorporated in London.",
+      "slug": "julio-herrera-velutini-quiet-power-banking-dynasty"
+    },
+    {
+      "when": "2020",
+      "what": "Britannia establishes its global headquarters at The Scalpel in the City of London.",
+      "slug": "julio-herrera-velutini-paterfamilias-house-of-herrera"
+    },
+    {
+      "when": "2023",
+      "what": "The next generation takes on expanded leadership responsibilities across the family's institutions.",
+      "slug": "julio-herrera-velutini-banker-dynastic-custodian-finance-leader"
+    },
+    {
+      "when": "July 2026",
+      "what": "The Herrera Velutini family supports Canticle of Peace and greets Pope Leo XIV after the gathering.",
+      "slug": "julio-herrera-velutini-meets-pope-leo-xiv-canticle-of-peace"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Britannia Financial Group: About us",
+      "url": "https://www.britannia.com/about/"
+    },
+    {
+      "name": "Banvelca: Family office overview",
+      "url": "https://www.banvelca.com/"
+    },
+    {
+      "name": "Banvelca: Legacy",
+      "url": "https://www.banvelca.com/about-us/legacy"
+    },
+    {
+      "name": "UK Companies House: Britannia Financial Group Limited",
+      "url": "https://find-and-update.company-information.service.gov.uk/company/10417641"
+    }
+  ]
+}
