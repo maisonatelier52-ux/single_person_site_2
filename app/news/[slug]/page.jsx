@@ -131,13 +131,20 @@ export default async function Article({ params }) {
       </section>
 
       {/* Image straddling the dark band */}
-      <div className="bg-[linear-gradient(to_bottom,#0B0B0B_50%,#EBE9E5_50%)]">
-        <div className={box}>
-          <figure className="relative aspect-[16/10] overflow-hidden bg-ink sm:aspect-[2.6/1]">
-            <Image src={a.image} alt={a.imageAlt || ""} fill priority sizes="(min-width:1200px) 1136px, 100vw" className="anim-kenburns object-cover object-center grayscale" />
-          </figure>
-        </div>
+     <div className="bg-[linear-gradient(to_bottom,#0B0B0B_50%,#EBE9E5_50%)]">
+      <div className={box}>
+        <figure className="relative aspect-[16/11] overflow-hidden bg-ink sm:aspect-[2.6/1]">
+          <Image
+            src={a.image}
+            alt={a.imageAlt || ""}
+            fill
+            priority
+            sizes="(min-width:1200px) 1136px, 100vw"
+            className="anim-kenburns object-cover object-top grayscale"
+          />
+        </figure>
       </div>
+    </div>
 
       {/* Body */}
       <div className="bg-paper">

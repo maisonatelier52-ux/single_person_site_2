@@ -70,7 +70,7 @@ export default function NewsPage() {
           {/* Featured */}
           <article className="grid overflow-hidden bg-ink text-white lg:grid-cols-[1.25fr_1fr]">
             <Link href={`/news/${lead.slug}`} tabIndex={-1} aria-hidden="true" className="relative block aspect-[16/10] lg:aspect-auto lg:min-h-[420px]">
-              <Image src={lead.image} alt="" fill priority sizes="(min-width:1024px) 55vw, 100vw" className="object-cover grayscale" />
+              <Image src={lead.image} alt="" fill priority sizes="(min-width:1024px) 55vw, 100vw" className="object-cover object-top grayscale" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-ink/40" />
             </Link>
             <div className="flex flex-col justify-center px-6 py-8 sm:px-10 sm:py-12">
