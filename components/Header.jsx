@@ -19,7 +19,7 @@ export default function Header() {
     <header className="relative z-50 w-full">
       <div className="bg-ink text-white">
         <div className="mx-auto flex max-w-[1440px] items-center justify-between px-5 py-2.5 text-[10px] font-medium uppercase tracking-[0.14em] sm:px-8 lg:px-10">
-          <p>Official website of {site.name}</p>
+          <p>Professional Profile of {site.name}</p>
           <a href={`mailto:${site.email}`} className="hidden transition-opacity hover:opacity-70 sm:block">{site.email}</a>
         </div>
       </div>

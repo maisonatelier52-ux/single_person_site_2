@@ -8,7 +8,7 @@ export default function Hero() {
         {/* Tagline */}
         <div data-motion="off" className="anim-fade-up relative z-20">
           <p className="text-[11px] font-medium uppercase leading-[1.7] tracking-[0.16em] sm:text-[13px]">
-            Julio Herrera<br />Velutini<br />Official website
+            Julio Herrera<br />Velutini<br />Professional Profile
           </p>
           <span className="mt-3 block h-px w-7 bg-ink" />
         </div>
@@ -45,7 +45,7 @@ export default function Hero() {
             </Link>
           </div>
           <div className="text-[13px] font-medium uppercase leading-[1.8] tracking-[0.16em]">
-            Official site<br />2026
+            Professional Profile<br />2026
             <span className="mt-2 block h-px w-7 bg-ink" />
           </div>
         </div>
