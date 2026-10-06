@@ -7,17 +7,17 @@ import { site, abs } from "@/data/site";
 import { formatDate } from "@/lib/posts";
 
 const p = site.profile;
-const metaTitle = "About Julio Herrera Velutini | Banker and Founder";
-const metaDescription = "Biography of Julio Herrera Velutini: born in Caracas in 1971, banker, founder of Britannia Financial Group, and custodian of a multigenerational financial legacy.";
+const metaTitle = "About Julio Herrera Velutini | Official Biography";
+const metaDescription = "A sourced biography of Julio Herrera Velutini: born in Caracas in 1971, a banker and entrepreneur associated with Britannia Financial Group and Banvelca.";
 
 const url = abs("/about");
-const image = { url: "/images/julio-about.jpg", width: 960, height: 1200, alt: `Portrait of ${p.name}` };
+const image = { url: "/story-man.webp", width: 1228, height: 1281, alt: `Portrait-style illustration representing ${p.name}` };
 
 export const metadata = {
   title: { absolute: metaTitle },
   description: metaDescription,
-  alternates: { canonical: "/about", languages: { "en-US": "/about", "en-GB": "/about", "en-AE": "/about", "x-default": "/about" } },
-  openGraph: { type: "profile", url: "/about", siteName: site.name, locale: site.locales.primary, alternateLocale: site.locales.alternates, title: metaTitle, description: metaDescription, firstName: "Julio", lastName: "Herrera Velutini", gender: "male", images: [image] },
+  alternates: { canonical: "/about" },
+  openGraph: { type: "profile", url: "/about", siteName: site.name, locale: site.locale, title: metaTitle, description: metaDescription, firstName: "Julio", lastName: "Herrera Velutini", gender: "male", images: [image] },
   twitter: { card: "summary_large_image", title: metaTitle, description: metaDescription, images: [{ url: image.url, alt: image.alt }] },
 };
 
@@ -85,7 +85,7 @@ export default function AboutPage() {
           </div>
         </div>
         <div className="relative z-0 h-[360px] w-full sm:h-[440px] lg:absolute lg:bottom-0 lg:right-0 lg:h-[92%] lg:w-[52%]">
-          <Image src="/story-man.png" alt={`Portrait of ${p.name}`} fill priority sizes="(min-width:1024px) 52vw, 100vw" className="object-contain object-bottom lg:object-right-bottom" />
+          <Image src="/story-man.webp" alt={`Portrait-style illustration representing ${p.name}`} fill priority sizes="(min-width:1024px) 52vw, 100vw" className="object-contain object-bottom lg:object-right-bottom" />
         </div>
       </section>
 

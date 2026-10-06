@@ -1,13 +1,14 @@
 # Julio Herrera Velutini
 
-> Official website of Julio Herrera Velutini, banker and entrepreneur, founder of Britannia Financial Group. Biography, family banking legacy (Banvelca, Banco Caracas) and sourced news coverage.
+> Official website and blog of Julio Herrera Velutini, banker and entrepreneur. Sourced biography, selected updates and original perspectives.
 
 ## Pages
 
 - /about: biography, key facts, timeline and sources
-- /news: all news articles, newest first
+- /news: official blog articles and selected updates, newest first
 - /contact: media inquiries and correction requests
-- /feed.xml: RSS feed of news
+- /editorial-policy: authorship, sourcing and correction standards
+- /feed.xml: RSS feed of blog articles
 - /sitemap.xml: full URL list
 
 ## Attribution

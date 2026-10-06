@@ -10,7 +10,6 @@ const serif = Newsreader({ subsets: ["latin"], variable: "--font-serif", display
 
 export const viewport = { width: "device-width", initialScale: 1, themeColor: "#0B0B0B" };
 
-// ─── Site-wide defaults. Every page file overrides title / description / canonical / openGraph / twitter itself. ───
 const siteTitle = `${site.name} | Banker and entrepreneur`;
 const ogImage = { url: site.ogImage, width: site.ogImageWidth, height: site.ogImageHeight, alt: `${site.name} official website` };
 
@@ -19,24 +18,21 @@ export const metadata = {
   title: { default: siteTitle, template: `%s | ${site.name}` },
   description: site.description,
   applicationName: site.name,
-  authors: [{ name: site.name, url: site.url }],
-  creator: site.name,
-  publisher: site.name,
-  keywords: ["Julio Herrera Velutini", "Julio Herrera Velutini banker", "Julio Herrera Velutini Britannia Financial Group", "Herrera Velutini family", "Banvelca", "Julio Herrera Velutini news"],
+  authors: [{ name: site.publisherName, url: "/editorial-policy" }],
+  creator: site.publisherName,
+  publisher: site.publisherName,
   category: "finance",
   alternates: {
     canonical: "/",
-    languages: { "en-US": "/", "en-GB": "/", "en-AE": "/", "x-default": "/" },
-    types: { "application/rss+xml": [{ url: "/feed.xml", title: `${site.name} news` }] },
+    types: { "application/rss+xml": [{ url: "/feed.xml", title: `${site.name} blog` }] },
   },
-  openGraph: { type: "website", url: "/", siteName: site.name, locale: site.locales.primary, alternateLocale: site.locales.alternates, title: siteTitle, description: site.description, images: [ogImage] },
+  openGraph: { type: "website", url: "/", siteName: site.name, locale: site.locale, title: siteTitle, description: site.description, images: [ogImage] },
   twitter: { card: "summary_large_image", title: siteTitle, description: site.description, images: [{ url: site.ogImage, alt: ogImage.alt }] },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
   formatDetection: { telephone: false, email: false, address: false },
   ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ? { verification: { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION } } : {}),
 };
 
-// Site-wide structured data (WebSite + Person + the organisations around him). Pages reference these by @id.
 const p = site.profile;
 const siteJsonLd = {
   "@context": "https://schema.org",
@@ -48,8 +44,16 @@ const siteJsonLd = {
       name: site.name,
       description: site.description,
       inLanguage: "en",
-      publisher: { "@id": `${site.url}/#person` },
+      publisher: { "@id": `${site.url}/#publisher` },
       about: { "@id": `${site.url}/#person` },
+    },
+    {
+      "@type": "Organization",
+      "@id": `${site.url}/#publisher`,
+      name: site.publisherName,
+      url: site.url,
+      logo: { "@type": "ImageObject", url: `${site.url}/icon.svg` },
+      publishingPrinciples: `${site.url}/editorial-policy`,
     },
     {
       "@type": "Person",
@@ -62,7 +66,7 @@ const siteJsonLd = {
       description: p.summary,
       url: site.url,
       mainEntityOfPage: { "@id": `${site.url}/about#profilepage` },
-      image: { "@type": "ImageObject", url: `${site.url}/images/julio-about.jpg`, width: 960, height: 1200 },
+      image: { "@type": "ImageObject", url: `${site.url}${site.portrait}`, width: 1228, height: 1281 },
       birthDate: p.birthDate,
       birthPlace: { "@type": "Place", name: p.birthPlace },
       nationality: [{ "@type": "Country", name: "Venezuela" }, { "@type": "Country", name: "Italy" }],
@@ -78,7 +82,6 @@ const siteJsonLd = {
       url: "https://www.britannia.com/",
       foundingDate: "2016",
       foundingLocation: { "@type": "Place", name: "London, United Kingdom" },
-      founder: { "@id": `${site.url}/#person` },
     },
     {
       "@type": "Organization",

@@ -11,8 +11,8 @@ const image = { url: site.ogImage, width: site.ogImageWidth, height: site.ogImag
 export const metadata = {
   title: { absolute: title },
   description,
-  alternates: { canonical: "/terms", languages: { "en-US": "/terms", "en-GB": "/terms", "en-AE": "/terms", "x-default": "/terms" } },
-  openGraph: { type: "website", url: "/terms", siteName: site.name, locale: site.locales.primary, alternateLocale: site.locales.alternates, title, description, images: [image] },
+  alternates: { canonical: "/terms" },
+  openGraph: { type: "website", url: "/terms", siteName: site.name, locale: site.locale, title, description, images: [image] },
   twitter: { card: "summary_large_image", title, description, images: [{ url: image.url, alt: image.alt }] },
 };
 
@@ -42,7 +42,7 @@ const jsonLd = {
 
 const sections = [
   { h: "Information only", p: "Content on this site is for general information. It is not legal, financial or investment advice." },
-  { h: "Sources and attribution", p: "Articles summarize published reporting and link to their sources. Statements from legal representatives or press releases are labeled as such and present one party's view." },
+  { h: "Sources and attribution", p: "Articles link to supporting sources. Press releases and affiliated websites are identified by source and are not presented as independent verification. See the Editorial Policy for the full publishing standard." },
   { h: "Corrections", p: "If something is inaccurate, send a correction request through the contact page, with the article address and the source that supports the change." },
   { h: "Third-party content", p: "Linked articles belong to their publishers. This site is not responsible for outside content." },
   { h: "Copyright", p: "Text and design on this site are protected. Short quotations with a link back are welcome." },

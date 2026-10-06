@@ -11,8 +11,8 @@ const image = { url: site.ogImage, width: site.ogImageWidth, height: site.ogImag
 export const metadata = {
   title: { absolute: title },
   description,
-  alternates: { canonical: "/privacy", languages: { "en-US": "/privacy", "en-GB": "/privacy", "en-AE": "/privacy", "x-default": "/privacy" } },
-  openGraph: { type: "website", url: "/privacy", siteName: site.name, locale: site.locales.primary, alternateLocale: site.locales.alternates, title, description, images: [image] },
+  alternates: { canonical: "/privacy" },
+  openGraph: { type: "website", url: "/privacy", siteName: site.name, locale: site.locale, title, description, images: [image] },
   twitter: { card: "summary_large_image", title, description, images: [{ url: image.url, alt: image.alt }] },
 };
 

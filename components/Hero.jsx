@@ -26,7 +26,7 @@ export default function Hero() {
 
         {/* Man */}
         <Image
-          src="/hero-man.png"
+          src="/hero-man.webp"
           alt=""
           width={1100}
           height={1700}
@@ -38,7 +38,7 @@ export default function Hero() {
         <div className="relative z-20 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="flex items-center gap-6 sm:gap-8">
             <Link href="/news" className="bg-ink px-7 py-4 text-[11px] font-semibold uppercase tracking-[0.14em] text-white transition-colors hover:bg-ink/85">
-              Latest news
+              Read the blog
             </Link>
             <Link href="/about" className="inline-flex items-center gap-2.5 border-b border-ink pb-1.5 text-[11px] font-medium uppercase tracking-[0.12em]">
               About Julio <span aria-hidden="true">→</span>

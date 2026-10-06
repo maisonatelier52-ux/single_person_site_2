@@ -6,7 +6,7 @@ import { posts } from "@/lib/posts";
 const pages = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
-  { label: "News", href: "/news" },
+  { label: "Blog", href: "/news" },
   { label: "Contact", href: "/contact" },
 ];
 
@@ -44,7 +44,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-[11px] font-semibold uppercase tracking-[0.14em]">Latest news</h3>
+            <h3 className="text-[11px] font-semibold uppercase tracking-[0.14em]">Latest articles</h3>
             <ul className="mt-5 space-y-3 text-[13px] text-white/60">
               {posts.slice(0, 3).map((p) => (<li key={p.slug}><Link href={`/news/${p.slug}`} className="transition-colors hover:text-white"><span className="line-clamp-2">{p.title}</span></Link></li>))}
             </ul>
@@ -62,6 +62,7 @@ export default function Footer() {
           <ul className="flex items-center gap-6">
             <li><Link href="/privacy" className="hover:text-white">Privacy Policy</Link></li>
             <li><Link href="/terms" className="hover:text-white">Terms of Use</Link></li>
+            <li><Link href="/editorial-policy" className="hover:text-white">Editorial Policy</Link></li>
             <li><a href="/feed.xml" className="hover:text-white">RSS</a></li>
           </ul>
         </div>

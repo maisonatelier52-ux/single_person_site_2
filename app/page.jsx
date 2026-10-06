@@ -7,18 +7,15 @@ import { posts } from "@/lib/posts";
 import { site } from "@/data/site";
 
 const title = "Julio Herrera Velutini | Official Website: Banker and Entrepreneur";
-const description = "Official website of Julio Herrera Velutini, banker and founder of Britannia Financial Group. Biography, family banking legacy, Banvelca and sourced news coverage.";
+const description = "Official website and blog of Julio Herrera Velutini, with a sourced biography, selected updates and original perspectives on finance, legacy and culture.";
 const url = site.url;
 const image = { url: site.ogImage, width: site.ogImageWidth, height: site.ogImageHeight, alt: "Julio Herrera Velutini official website" };
 
 export const metadata = {
   title: { absolute: title },
   description,
-  alternates: {
-    canonical: "/",
-    languages: { "en-US": "/", "en-GB": "/", "en-AE": "/", "x-default": "/" },
-  },
-  openGraph: { type: "website", url: "/", siteName: site.name, locale: site.locales.primary, alternateLocale: site.locales.alternates, title, description, images: [image] },
+  alternates: { canonical: "/" },
+  openGraph: { type: "website", url: "/", siteName: site.name, locale: site.locale, title, description, images: [image] },
   twitter: { card: "summary_large_image", title, description, images: [{ url: image.url, alt: image.alt }] },
 };
 
@@ -39,8 +36,8 @@ const jsonLd = {
     },
     {
       "@type": "ItemList",
-      "@id": `${url}/#latest-news`,
-      name: `Latest news about ${site.name}`,
+      "@id": `${url}/#latest-articles`,
+      name: `Latest articles from ${site.name}`,
       itemListElement: posts.slice(0, 3).map((p, i) => ({ "@type": "ListItem", position: i + 1, url: `${url}/news/${p.slug}`, name: p.title })),
     },
   ],

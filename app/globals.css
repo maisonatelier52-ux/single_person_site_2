@@ -1,6 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@config "../tailwind.config.js";
+@import "tailwindcss";
 
 html { scroll-behavior: smooth; }
 body { @apply bg-paper text-ink antialiased; }
@@ -23,9 +22,11 @@ body { @apply bg-paper text-ink antialiased; }
 
 /* Slow floating portrait / smoke / skyline / photo zoom */
 .anim-float { animation: float 8s ease-in-out infinite; }
-@keyframes float { 50% { translate: 0 -10px; } }
+/* Tailwind 4 implements -translate-x-1/2 with the individual translate
+   property. Keep the original horizontal centering inside the keyframe. */
+@keyframes float { 50% { translate: -50% -10px; } }
 .anim-smoke { animation: smoke 14s ease-in-out infinite alternate; }
-@keyframes smoke { from { translate: -3% 0; scale: 1; } to { translate: 3% -4%; scale: 1.08; } }
+@keyframes smoke { from { translate: -53% 0; scale: 1; } to { translate: -47% -4%; scale: 1.08; } }
 .anim-skyline { transform-origin: bottom; animation: skyline 10s ease-in-out infinite alternate; }
 @keyframes skyline { from { scale: 1 1; } to { scale: 1 1.07; } }
 .anim-kenburns { animation: kenburns 18s ease-out both; }

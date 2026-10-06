@@ -11,8 +11,8 @@ const image = { url: site.ogImage, width: site.ogImageWidth, height: site.ogImag
 export const metadata = {
   title: { absolute: title },
   description,
-  alternates: { canonical: "/contact", languages: { "en-US": "/contact", "en-GB": "/contact", "en-AE": "/contact", "x-default": "/contact" } },
-  openGraph: { type: "website", url: "/contact", siteName: site.name, locale: site.locales.primary, alternateLocale: site.locales.alternates, title, description, images: [image] },
+  alternates: { canonical: "/contact" },
+  openGraph: { type: "website", url: "/contact", siteName: site.name, locale: site.locale, title, description, images: [image] },
   twitter: { card: "summary_large_image", title, description, images: [{ url: image.url, alt: image.alt }] },
 };
 

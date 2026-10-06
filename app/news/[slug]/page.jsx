@@ -11,23 +11,23 @@ import { site, abs } from "@/data/site";
 
 export const generateStaticParams = () => posts.map((p) => ({ slug: p.slug }));
 
-export function generateMetadata({ params }) {
-  const a = getPost(params.slug);
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const a = getPost(slug);
   if (!a) return {};
   const path = `/news/${a.slug}`;
   const title = a.metaTitle || a.title;
   const description = a.metaDescription || a.description;
   const image = { url: a.image, width: a.imageWidth, height: a.imageHeight, alt: a.imageAlt || a.title };
   return {
-    title: { absolute: `${title} | ${site.name}` },
+    title: { absolute: title },
     description,
-    keywords: [...a.tags, site.name, "Julio Herrera Velutini news"],
-    authors: [{ name: "Herrera Velutini News Desk", url: site.url }],
-    alternates: { canonical: path, languages: { "en-US": path, "en-GB": path, "en-AE": path, "x-default": path } },
+    authors: [{ name: site.publisherName, url: "/editorial-policy" }],
+    alternates: { canonical: path },
     openGraph: {
-      type: "article", url: path, siteName: site.name, locale: site.locales.primary, alternateLocale: site.locales.alternates,
+      type: "article", url: path, siteName: site.name, locale: site.locale,
       title, description, images: [image],
-      publishedTime: `${a.date}T00:00:00Z`, modifiedTime: `${a.updated || a.date}T00:00:00Z`, section: a.tags[0], tags: a.tags, authors: ["Herrera Velutini News Desk"],
+      publishedTime: `${a.date}T00:00:00Z`, modifiedTime: `${a.updated || a.date}T00:00:00Z`, section: a.tags[0], tags: a.tags, authors: [site.publisherName],
     },
     twitter: { card: "summary_large_image", title, description, images: [{ url: image.url, alt: image.alt }] },
     robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
@@ -41,8 +41,9 @@ function SideHeading({ children }) {
   return (<><h2 className={sideTitle}>{children}</h2><span aria-hidden="true" className="mt-2 block h-px w-8 bg-ink" /></>);
 }
 
-export default function Article({ params }) {
-  const a = getPost(params.slug);
+export default async function Article({ params }) {
+  const { slug } = await params;
+  const a = getPost(slug);
   if (!a) notFound();
   const others = getOthers(a.slug, 3);
   const crumbs = [{ name: "Home", href: "/" }, { name: "News", href: "/news" }, { name: a.title, href: `/news/${a.slug}` }];
@@ -71,7 +72,7 @@ export default function Article({ params }) {
         itemListElement: crumbs.map((c, i) => ({ "@type": "ListItem", position: i + 1, name: c.name, item: abs(c.href) })),
       },
       {
-        "@type": "NewsArticle",
+        "@type": a.contentType || "BlogPosting",
         "@id": `${url}#article`,
         headline: a.title,
         alternativeHeadline: a.metaTitle || undefined,
@@ -82,8 +83,8 @@ export default function Article({ params }) {
         thumbnailUrl: abs(a.image),
         datePublished: `${a.date}T00:00:00Z`,
         dateModified: `${a.updated || a.date}T00:00:00Z`,
-        author: { "@type": "Organization", name: "Herrera Velutini News Desk", url: site.url },
-        publisher: { "@id": `${site.url}/#person` },
+        author: { "@id": `${site.url}/#publisher` },
+        publisher: { "@id": `${site.url}/#publisher` },
         isPartOf: { "@id": `${site.url}/#website` },
         about: { "@id": `${site.url}/#person` },
         mentions: [{ "@id": `${site.url}/#britannia` }, { "@id": `${site.url}/#banvelca` }],
@@ -121,7 +122,10 @@ export default function Article({ params }) {
           <span aria-hidden="true" className="mt-2 block h-px w-12 bg-white/70" />
           <h1 className="mt-5 max-w-[920px] text-[clamp(1.9rem,4.6vw,3.6rem)] font-extrabold uppercase leading-[1.02] tracking-[-0.02em] text-balance">{a.title}</h1>
           <p className="mt-6 text-[12px] tracking-[0.04em] text-white/65">
-            <time dateTime={a.date}>{formatDate(a.date, true)}</time> <span aria-hidden="true" className="mx-2">•</span> {readingMinutes(a)} min read
+            By <Link href="/editorial-policy" className="underline decoration-white/35 underline-offset-4 hover:decoration-white">{site.publisherName}</Link>
+            <span aria-hidden="true" className="mx-2">•</span>
+            <time dateTime={a.date}>{formatDate(a.date, true)}</time>
+            <span aria-hidden="true" className="mx-2">•</span> {readingMinutes(a)} min read
           </p>
         </div>
       </section>
@@ -140,6 +144,12 @@ export default function Article({ params }) {
         <div className={`${box} grid gap-12 py-10 lg:grid-cols-[minmax(0,1fr)_330px] lg:gap-0 lg:py-14`}>
           <div className="min-w-0 lg:border-r lg:border-ink/15 lg:pr-12">
             <p id="overview" className="scroll-mt-6 font-serif text-[clamp(1.35rem,2.6vw,1.75rem)] leading-[1.35]">{a.description}</p>
+            <aside aria-label="Source note" className="mt-6 border-l-2 border-ink bg-white/50 px-5 py-4 text-[12px] leading-relaxed text-ink/70">
+              <span className="font-bold uppercase tracking-[0.1em] text-ink">Source note:</span>{" "}
+              This article draws on {a.sources.slice(0, 2).map((source, index) => (
+                <span key={source.url}>{index > 0 ? " and " : ""}<a href={source.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-4">{source.name}</a></span>
+              ))}. The complete source list appears below.
+            </aside>
             <hr className="my-8 border-ink/20" />
 
             <div id="story" className="scroll-mt-6 space-y-5 text-[15px] leading-[1.8] text-ink/85">
@@ -190,7 +200,7 @@ export default function Article({ params }) {
               <h2 id="ab" className={sideTitle}>About Julio Herrera Velutini</h2>
               <span aria-hidden="true" className="mt-2 block h-px w-8 bg-ink" />
               <div className="relative mt-4 aspect-[16/7] overflow-hidden bg-[linear-gradient(90deg,#6f6f6f,#b9b9b9)]">
-                <Image src="/story-man.png" alt="" fill sizes="330px" className="object-cover object-top" />
+                <Image src="/story-man.webp" alt="" fill sizes="330px" className="object-cover object-top" />
               </div>
               <p className="mt-4 text-[12px] leading-[1.7] text-ink/80">{site.profile.summary}</p>
               <Link href="/about" className="mt-4 inline-block border-b border-ink pb-1 text-[10px] font-semibold uppercase tracking-[0.14em]">Read full biography →</Link>
@@ -215,7 +225,7 @@ export default function Article({ params }) {
         <div className="mx-auto max-w-[1200px] px-5 py-12 sm:px-8 lg:py-16">
           <div className="flex items-center justify-between">
             <h2 id="rel" className="text-base font-bold uppercase tracking-[0.12em]">Related coverage</h2>
-            <Link href="/news" className="text-[10px] font-medium uppercase tracking-[0.12em] underline-offset-4 hover:underline">View all news</Link>
+            <Link href="/news" className="text-[10px] font-medium uppercase tracking-[0.12em] underline-offset-4 hover:underline">View all articles</Link>
           </div>
           <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {others.map((p) => (<NewsCard key={p.slug} post={p} />))}

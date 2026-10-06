@@ -5,8 +5,8 @@ import NewsCard from "@/components/NewsCard";
 import { posts, formatDate, readingMinutes } from "@/lib/posts";
 import { site, abs } from "@/data/site";
 
-const title = `News about ${site.name} | Latest Coverage and Sources`;
-const description = `Latest news about ${site.name}: banking, Britannia Financial Group, the Herrera Velutini family legacy and philanthropy. Every article links to its sources.`;
+const title = `${site.name} Blog | Official Updates and Insights`;
+const description = `The official ${site.name} blog: selected updates and sourced articles on finance, family legacy, culture and philanthropy.`;
 const url = abs("/news");
 const image = { url: posts[0].image, width: posts[0].imageWidth, height: posts[0].imageHeight, alt: posts[0].imageAlt };
 
@@ -15,10 +15,9 @@ export const metadata = {
   description,
   alternates: {
     canonical: "/news",
-    languages: { "en-US": "/news", "en-GB": "/news", "en-AE": "/news", "x-default": "/news" },
-    types: { "application/rss+xml": [{ url: "/feed.xml", title: `${site.name} news` }] },
+    types: { "application/rss+xml": [{ url: "/feed.xml", title: `${site.name} blog` }] },
   },
-  openGraph: { type: "website", url: "/news", siteName: site.name, locale: site.locales.primary, alternateLocale: site.locales.alternates, title, description, images: [image] },
+  openGraph: { type: "website", url: "/news", siteName: site.name, locale: site.locale, title, description, images: [image] },
   twitter: { card: "summary_large_image", title, description, images: [{ url: image.url, alt: image.alt }] },
 };
 
@@ -60,7 +59,7 @@ export default function NewsPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-      <PageHero crumbs={crumbs} label="News" title={`News about ${site.name}`} intro="Coverage and public record, newest first. Each article is written from published reporting and links to its sources.">
+      <PageHero crumbs={crumbs} label="Official blog" title={`Updates and insights from ${site.name}`} intro="Selected articles and official updates, newest first. Every article identifies its publisher and links to supporting sources.">
         <ul className="mt-8 flex flex-wrap gap-2" aria-label="Topics covered">
           {tags.map((t) => (<li key={t} className="border border-white/25 px-3 py-1.5 text-[10px] font-medium uppercase tracking-[0.12em] text-white/80">{t}</li>))}
         </ul>

@@ -3,7 +3,7 @@ import { ShieldIcon, StarIcon, GlobeIcon, CalendarIcon, MailIcon } from "./icons
 const perks = [
   { Icon: ShieldIcon, title: "Verified facts", text: "Only information that can be verified." },
   { Icon: StarIcon, title: "Reviewed content", text: "Every article is approved before publishing." },
-  { Icon: GlobeIcon, title: "Sources linked", text: "News links back to the original source." },
+  { Icon: GlobeIcon, title: "Sources linked", text: "Articles link back to their supporting sources." },
   { Icon: CalendarIcon, title: "Regular updates", text: "New articles are added on a steady schedule." },
   { Icon: MailIcon, title: "Press inquiries", text: "Media can reach out through the contact page." },
 ];

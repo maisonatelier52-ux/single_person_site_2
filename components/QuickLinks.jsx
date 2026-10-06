@@ -4,7 +4,7 @@ import { FedoraIcon, CalendarIcon, MailIcon, GroupIcon } from "./icons";
 
 const items = [
   { Icon: FedoraIcon, title: "Biography", text: "Background, career and roles.", cta: "Read about Julio", href: "/about" },
-  { Icon: CalendarIcon, title: "Latest news", text: "Articles and updates, newest first.", cta: "Read the news", href: "/news" },
+  { Icon: CalendarIcon, title: "Official blog", text: "Selected articles and updates, newest first.", cta: "Read the blog", href: "/news" },
   { Icon: MailIcon, title: "Media inquiries", text: "How journalists and organizations can reach out.", cta: "Contact", href: "/contact" },
   { Icon: GroupIcon, title: "Official profiles", text: "Verified links to his social profiles.", cta: "View profiles", href: "/contact#profiles" },
 ];

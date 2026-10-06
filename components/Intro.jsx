@@ -17,7 +17,7 @@ export default function Intro() {
           </Link>
         </div>
         <div className="relative mt-8 flex h-[340px] items-end justify-center sm:h-[420px] lg:absolute lg:inset-y-0 lg:right-[4%] lg:mt-0 lg:h-full lg:w-[55%] lg:justify-end">
-          <Image src="/story-man.png" alt="Portrait of Julio Herrera Velutini" width={1300} height={1300} className="h-full w-auto max-w-none object-contain object-bottom" />
+          <Image src="/story-man.webp" alt="Portrait-style illustration representing Julio Herrera Velutini" width={1228} height={1281} className="h-full w-auto max-w-none object-contain object-bottom" />
         </div>
       </div>
     </section>
